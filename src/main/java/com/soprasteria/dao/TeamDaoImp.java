@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.soprasteria.model.Employee;
 import com.soprasteria.model.Project;
 import com.soprasteria.model.Team;
 
@@ -29,4 +30,17 @@ public class TeamDaoImp implements TeamDao{
 		List<Team> teams = theQuery.getResultList();	
 		return teams;
 	}
+
+	@Override
+	public Team createTeam(Team team) {
+		return entityManager.merge(team);
+	}
+
+	@Override
+	public Team getTeamId(String team_name) {
+		Query query = entityManager.createQuery("SELECT  c FROM Team c WHERE c.team_name = :team_name" , Team.class);
+		query.setParameter("team_name", team_name);
+		  return  (Team) query.getSingleResult();
+	}
+	
 }

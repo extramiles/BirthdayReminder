@@ -39,4 +39,34 @@ private EmployeeDao employeeDAO;
 		return employeeDAO.getTeamEmail(emp);
 	}
 
+	@Override
+	public List<Employee> getEmployees() {
+		return employeeDAO.getEmployees();
+	}
+
+	@Override
+	public List<Employee> getMyTeam(int team_id) {
+		return employeeDAO.getMyTeam(team_id);
+	}
+
+	@Override
+	public Employee updateEmployeeTeam(int employee_id, int team_id) {
+		return employeeDAO.updateEmployeeTeam(employee_id,team_id);
+	}
+
+	@Override
+	public Employee updateBalance(int employee_id, Integer team_id, Integer balance, String comments) {
+		return employeeDAO.updatePayment(employee_id, team_id, balance, comments);
+	}
+
+	@Override
+	public Employee login(int username, String password) {
+		return employeeDAO.login(username,password);
+	}
+
+	@Override
+	public Employee updateTeamBalance(int employee_id, Integer team_id, Integer balance, String comments) {
+		return employeeDAO.updateTeamBalance(employee_id, team_id, balance, comments);
+	}
+
 }

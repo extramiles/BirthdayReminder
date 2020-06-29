@@ -1,5 +1,6 @@
 package com.soprasteria.controller;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 
@@ -9,10 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soprasteria.model.Employee;
 import com.soprasteria.model.Project;
 import com.soprasteria.service.EmployeeService;
@@ -64,5 +67,47 @@ private EmployeeService employeeService;
 	public List<String> getEmail(@PathVariable int emp){
 		return employeeService.getTeamEmail(emp);
 	}
+	
+	@GetMapping("getEmployees")
+	public List<Employee> getEmployees(){
+		return employeeService.getEmployees();
+		
+	}
+	@GetMapping("getMyTeam/{team_id}")
+	public List<Employee> getMyTeam(@PathVariable int team_id) {
+	
+		return employeeService.getMyTeam(team_id);
+	
+	}
+	
+	@PostMapping("updateEmployeeTeam")
+	public Employee updateEmployeeTeam(@RequestBody Employee emp) {		
+			
+		return employeeService.updateEmployeeTeam(emp.getEmployee_id(),emp.getTeam_id());
+		
+	}
+	
+	@PostMapping("updatePayment")
+	public Employee updateBalance(@RequestBody Employee emp) {		
+			
+		return employeeService.updateBalance(emp.getEmployee_id(),emp.getTeam_id(),emp.getBalance(),emp.getComments());
+		
+	}
+	
+	@PostMapping("teamExpenditure")
+	public Employee updateTeamBalance(@RequestBody Employee emp) {		
+		
+	return employeeService.updateTeamBalance(emp.getEmployee_id(),emp.getTeam_id(),emp.getBalance(),emp.getComments());
+	
+}
+	
+	@PostMapping("login" )
+    public Employee showLoginPage(@RequestBody Employee  emp) throws IOException{
+		
+	
+        return employeeService.login(emp.getEmployee_id(),emp.getPassword());
+    }
+	
+	
 	
 }

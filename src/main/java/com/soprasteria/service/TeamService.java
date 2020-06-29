@@ -8,4 +8,8 @@ public interface TeamService {
 
 	List<Team> viewTeam();
 
+	Team createTeam(Team team);
+
+	Team getTeamId(String team_name);
+
 }

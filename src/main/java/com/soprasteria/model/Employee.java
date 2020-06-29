@@ -34,12 +34,21 @@ public class Employee {
 	@Column(name = "team_id",nullable = true)
 	private Integer team_id;
 	
+	@Column(name = "balance")
+	private Integer balance;
+	
 	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "role")
+	private String role;
 	
 	@Column(name = "designation")
 	private String designation;
 
+	@Column(name = "comments")
+	private String comments;
+	
 	public int getEmployee_id() {
 		return employee_id;
 	}
@@ -102,6 +111,30 @@ public class Employee {
 
 	public void setAnniversary_date(Date anniversary_date) {
 		this.anniversary_date = anniversary_date;
+	}
+
+	public Integer getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Integer balance) {
+		this.balance = balance;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 	
 }

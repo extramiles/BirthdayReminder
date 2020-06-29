@@ -28,6 +28,16 @@ public class TeamServiceImp implements TeamService {
 		return teamDAO.viewTeam();
 	}
 
+	@Override
+	public Team createTeam(Team team) {
+		return teamDAO.createTeam(team);
+	}
+
+	@Override
+	public Team getTeamId(String team_name) {
+		return teamDAO.getTeamId(team_name);
+	}
+
 	
 
 }

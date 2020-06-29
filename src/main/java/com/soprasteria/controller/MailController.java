@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.soprasteria.service.EmployeeService;
 import com.soprasteria.service.TeamService;
 
-@Controller
+//@Controller
 public class MailController {
     
 	@Autowired

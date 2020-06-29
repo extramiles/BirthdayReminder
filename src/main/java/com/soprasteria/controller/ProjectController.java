@@ -23,7 +23,7 @@ private ProjectService projectService;
 		projectService = theProjectService;
 	}
 	
-	@GetMapping("viewCert")
+	@GetMapping("getProjects")
 	public List<Project> viewProject() {
 		return this.projectService.viewProject();
 		

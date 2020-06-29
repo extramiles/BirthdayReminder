@@ -13,4 +13,16 @@ public interface EmployeeService {
 
 	List<String> getTeamEmail(Integer emp);
 
+	List<Employee> getEmployees();
+
+	List<Employee> getMyTeam(int team_id);
+
+	Employee updateEmployeeTeam(int employee_id, int team_id);
+
+	Employee updateBalance(int employee_id, Integer team_id, Integer balance, String comments);
+	
+	Employee login(int username, String password);
+
+	Employee updateTeamBalance(int employee_id, Integer team_id, Integer balance, String comments);
+
 }
